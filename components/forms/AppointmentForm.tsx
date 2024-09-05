@@ -72,11 +72,11 @@ export const AppointmentForm = ({
         const appointment = {
           userId,
           patient: patientId,
-          primaryPhysician: values.primaryPhysician,
+          primaryPhysician: values?.primaryPhysician,
           schedule: new Date(values.schedule),
-          reason: values.reason!,
+          reason: values?.reason!,
           status: status as Status,
-          note: values.note,
+          note: values?.note,
         };
 
         const newAppointment = await createAppointment(appointment);
@@ -92,10 +92,10 @@ export const AppointmentForm = ({
           userId,
           appointmentId: appointment?.$id!,
           appointment: {
-            primaryPhysician: values.primaryPhysician,
-            schedule: new Date(values.schedule),
+            primaryPhysician: values?.primaryPhysician,
+            schedule: new Date(values?.schedule),
             status: status as Status,
-            cancellationReason: values.cancellationReason,
+            cancellationReason: values?.cancellationReason,
           },
           type,
         };
