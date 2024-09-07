@@ -125,7 +125,7 @@ export const AppointmentForm = ({
       buttonLabel = "Schedule Appointment";
       break;
     default:
-      buttonLabel = "Create Apppointment";
+      buttonLabel = "Submit Apppointment";
   }
 
   return (

@@ -20,34 +20,34 @@ export const columns: ColumnDef<Appointment>[] = [
   {
     accessorKey: "patient",
     header: "Patient",
-    cell: ({ row }) => (
-      <p className="text-14-medium ">{row.original.patient.name}</p>
-    ),
+    cell: ({ row: { original: data } }) => {
+      return <p className="text-14-medium ">{data.patient.name}</p>;
+    },
   },
   {
     accessorKey: "status",
     header: "Status",
-    cell: ({ row }) => (
+    cell: ({ row: { original: data } }) => (
       <div className="min-w-[115px]">
-        <StatusBadge status={row.original.status} />
+        <StatusBadge status={data.status} />
       </div>
     ),
   },
   {
     accessorKey: "schedule",
     header: "Appointment",
-    cell: ({ row }) => (
+    cell: ({ row: { original: data } }) => (
       <p className="text-14-regular min-w-[100px]">
-        {formatDateTime(row.original.schedule).dateTime}
+        {formatDateTime(data.schedule).dateTime}
       </p>
     ),
   },
   {
     accessorKey: "primaryPhysician",
     header: "Doctor",
-    cell: ({ row }) => {
+    cell: ({ row: { original: data } }) => {
       const doctor = Doctors.find(
-        (doctor) => doctor.name === row.original.primaryPhysician
+        (doctor) => doctor.name === data.primaryPhysician
       );
 
       return (
